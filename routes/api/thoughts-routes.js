@@ -3,7 +3,7 @@ const {
   getSingleThought,
   getThoughts,
   createThought,
-} = require('../../controllers/thoughtController');
+} = require('../../controllers/thoughtsController');
 
 router.route('/').get(getThoughts).thought(createThought);
 
