@@ -1,31 +1,47 @@
 const { Schema, model } = require('mongoose');
 
-const tagSchema = new Schema(
+const userSchema = new Schema(
   {
-    tagName: {
+    username: {
+      type: String,
+      unique: true,
+      required: true,
+      trim: true,
+    },
+    email: {
       type: String,
       required: true,
+      unique: true,
+      match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Must match a valid email address'],
     },
-    color: {
-      type: String,
-      default: '#008080',
-    },
-    createdAt: Date,
+    thoughts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Thought',
+      },
+    ],
+    friends: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+      },
+    ],
   },
   {
     toJSON: {
       virtuals: true,
     },
+    id: false,
   }
 );
 
-tagSchema
-  .virtual('getTagCss')
+userSchema
+  .virtual('friendCount')
   // Getter
   .get(function () {
-    return `color: ${this.color}`;
+    return this.friends.length;
   });
 
-const Tag = model('tag', tagSchema);
+const User = model('User', userSchema);
 
-module.exports = Tag;
+module.exports = User;
