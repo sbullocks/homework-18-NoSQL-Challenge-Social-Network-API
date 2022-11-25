@@ -1,5 +1,5 @@
 {
-  "name": "24-Stu_Subdoc-Population",
+  "name": "24-stu_subdoc-population",
   "version": "1.0.1",
   "description": "Student activity for populating subdocs",
   "main": "index.js",
@@ -15,5 +15,15 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.9"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sbullocks/homework-18-NoSQL-Challenge-Social-Network-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/sbullocks/homework-18-NoSQL-Challenge-Social-Network-API/issues"
+  },
+  "homepage": "https://github.com/sbullocks/homework-18-NoSQL-Challenge-Social-Network-API#readme"
 }
