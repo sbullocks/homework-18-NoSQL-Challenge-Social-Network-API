@@ -1,14 +1,14 @@
 const router = require('express').Router();
 const {
-  getTags,
-  getSingleTag,
-  createTag,
-} = require('../../controllers/tagController');
+  getUsers,
+  getSingleUser,
+  createUser,
+} = require('../../controllers/userController');
 
 // /api/users
-router.route('/').get(getTags).post(createTag);
+router.route('/').get(getUsers).post(createUser);
 
 // /api/users/:userId
-router.route('/:userId').get(getSingleTag);
+router.route('/:userId').get(getSingleUser);
 
 module.exports = router;
