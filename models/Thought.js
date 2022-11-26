@@ -1,5 +1,7 @@
 const { Schema, model } = require("mongoose");
-const date = require("../utils/date");
+// const date = require("../utils/date");
+const moment = require('moment');
+
 
 // Schema to create thought model
 const thoughtSchema = new Schema(
