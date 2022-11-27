@@ -9,7 +9,7 @@ module.exports = {
   },
   // Get a User
   getSingleUser(req, res) {
-    User.findOne({ _id: req.params.UserId })
+    User.findOne({ _id: req.params.userId })
       .select('-__v')
       .then((User) =>
         !User
@@ -29,7 +29,7 @@ module.exports = {
   },
   // Delete a User
   deleteUser(req, res) {
-    User.findOneAndDelete({ _id: req.params.UserId })
+    User.findOneAndDelete({ _id: req.params.userId })
       .then((User) =>
         !User
           ? res.status(404).json({ message: 'No User with that ID' })
@@ -41,7 +41,7 @@ module.exports = {
   // Update a User
   updateUser(req, res) {
     User.findOneAndUpdate(
-      { _id: req.params.UserId },
+      { _id: req.params.userId },
       { $set: req.body },
       { runValidators: true, new: true }
     )
