@@ -17,7 +17,7 @@ const thoughtSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      get: (createAtval) => moment(createAtval).toDate(),
+      get: (currentDate) => moment(currentDate).toDate(),
     },
     username: {
       type: String,
