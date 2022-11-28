@@ -24,12 +24,33 @@ module.exports = {
   // Create a Thought
   createThought(req, res) {
     Thought.create(req.body)
-      .then((Thought) => res.json(Thought))
+      .then((Thought) => {
+      return Users.findOneAndUpdate(
+        { _id: req.body.userId },
+        { $addToSet: { thoughts: Thought._id } },
+        { new: true }
+      );
+      })
       .catch((err) => {
         console.log(err);
         return res.status(500).json(err);
       });
   },
+
+  // createThought(req, res) {
+  //   Thought.create(req.body)
+  //     .then((Thought) => res.json(Thought))
+  //     return Users.findOneAndUpdate(
+  //       { _id: req.body.userId },
+  //       { $addToSet: { thoughts: Thought._id } },
+  //       { new: true }
+  //     )
+  //     .catch((err) => {
+  //       console.log(err);
+  //       return res.status(500).json(err);
+  //     });
+  // },
+
   // Delete a Thought
   deleteThought(req, res) {
     Thought.findOneAndDelete({ _id: req.params.thoughtId })
