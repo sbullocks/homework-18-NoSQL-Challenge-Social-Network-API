@@ -1,7 +1,7 @@
 {
-  "name": "24-stu_subdoc-population",
+  "name": "homework-18-nosql-challenge-social-network-api",
   "version": "1.0.1",
-  "description": "Student activity for populating subdocs",
+  "description": "This is challenge # 18. NoSQL Challenge: Social Network API.",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
