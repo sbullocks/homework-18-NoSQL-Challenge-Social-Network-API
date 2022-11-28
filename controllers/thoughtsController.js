@@ -4,6 +4,7 @@ module.exports = {
   // Get all Thoughts
   getThoughts(req, res) {
     Thought.find()
+    .populate({ path: 'reactions', select: '-__v' })
       .then((Thoughts) => res.json(Thoughts))
       .catch((err) => res.status(500).json(err));
   },
@@ -11,6 +12,7 @@ module.exports = {
   getSingleThought(req, res) {
     console.log(req.params);
     Thought.findOne({ _id: req.params.thoughtId })
+    .populate({ path: 'reactions', select: '-__v' })
       .select('-__v')
       .then((Thought) =>
         !Thought
