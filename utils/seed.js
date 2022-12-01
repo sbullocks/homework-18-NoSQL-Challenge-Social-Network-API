@@ -16,30 +16,8 @@ connection.once('open', async () => {
   const users = [];
   const thoughts = [];
 
-  // Function to make a Thought object and push it into the Thoughts array
-  // const makeThoughts = (text) => {
-  //   thoughts.push({
-  //     published: Math.random() < 0.5,
-  //     text,
-  //     users: [users[genRandomIndex(users)]._id],
-  //   });
-  // };
-
-  // Create 20 random users and push them into the users array
-  // for (let i = 0; i < 20; i++) {
-  //   const tagname = getRandomColor();
-
-  //   users.push({
-  //     tagname,
-  //     color: tagname,
-  //   });
-  // }
-
   // Wait for the users to be inserted into the database
   await Users.collection.insertMany(users);
-
-  // For each of the users that exist, make a random thought of length 50
-  // users.forEach(() => makeThoughts(getRandomThoughts(50)));
 
   // Wait for the Thoughts array to be inserted into the database
   await Thoughts.collection.insertMany(thoughts);
